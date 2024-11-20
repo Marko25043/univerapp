@@ -1,0 +1,22 @@
+{%extends 'base.html' %}
+
+{% block content %}
+<section class="login">
+    <form class="login-form" action="" method="POST">
+            {% csrf_token %}
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            <h2 class="login-text">Login</h2>
+            <input class="username" name="username" placeholder="Enter username"> <br>
+            <input class="username" type="password" name="password" placeholder="Enter password"> <br>
+            <input type="submit" class="login-btn" value="Submit">
+    </form>
+</section>
+{{data}}
+{%endblock%}

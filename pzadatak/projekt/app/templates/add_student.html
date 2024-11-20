@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block add_student %}
+<section class="add_student">
+        <a href="{% url 'main'%}">Nazad</a>
+        <form method="POST" >
+                {{form.as_p}}
+                <input type="submit" value="Dodaj studenta" id="submit_btn">
+                {% csrf_token %}
+        </form>
+        <h2>Lista Studenta</h2>
+            <ul>
+                <table>
+                {% for student in students %}
+                    
+                    <tr>
+                        <td><li>{{ student.username }}</li></td>
+                        <td><a href="{%url 'update_student' student.id %}" >Edit</a></td>
+                        <td><a href="{%url 'delete_student' student.id %}">Delete</a></td>
+                        
+                    </tr>
+                    
+                {% endfor %}
+                </table>
+            </ul>
+
+
+</section>
+
+
+{% endblock %}

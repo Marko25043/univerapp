@@ -1,0 +1,23 @@
+[
+    {
+        "model": "app.uloga",
+        "pk": 1,
+        "fields": {
+            "role": "prof"
+        }
+    },
+    {
+        "model": "app.uloga",
+        "pk": 2,
+        "fields": {
+            "role": "stu"
+        }
+    },
+    {
+        "model": "app.uloga",
+        "pk": 3,
+        "fields": {
+            "role": "adm"
+        }
+    }
+]

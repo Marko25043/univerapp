@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    margin: 1rem;
+    padding: 0.2rem;
+    background-color: #ecf0f1;
+    
+}
+.login {
+	margin-left: 3.5rem;
+	padding: 0.5rem;
+	background-color: white;
+	border-radius: 15px;
+	position: absolute;
+	top: 50%;
+    height: 30rem;
+    width: 40rem;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.login form input{
+   margin: 1rem;
+ 
+
+}
+.login-btn{
+    background-color: #4198f7;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 12px;
+    border-color: #1683f7;
+
+
+}
+.login-btn:hover{
+    background-color: transparent;
+    border-color: #4198f7;
+    color: black;
+    transition: 0.51s ease-in-out;
+}
+.login-text{
+    text-align: center;
+}
+.login-form {
+	display: grid;
+    padding: 5rem;
+}
+.username{
+    color: #1683f7;
+   border-radius: 10px;
+   border-color:#4198f7 ;
+   background-color: transparent;
+   padding: 0.7rem;
+   
+
+}
+
+.add_subject form{
+    margin: 0.5rem;
+    padding: 0.5rem;
+ 
+}
+.add_subject form div{
+    margin: 0.3rem;
+    padding: 0.3rem;
+
+}
+h2{
+    font-size: 2rem;
+    font-family: Helvetica, sans-serif;
+}
+h3{
+    font-size: 1.6rem;
+    font-family: Helvetica, sans-serif;
+}
+td {
+    padding: 20px;
+    margin: 10px;
+}
+td li{
+    list-style-type: none;
+    font-size: 1.5rem;
+}
+a,label{
+    font-size: 1.5rem;
+    color: black;
+}
+
+input{
+    font-size: 1.3rem;
+}
+p{
+    margin-bottom: 0.7rem;
+}
+.navigation{
+    background-color: white;
+    padding: 30px;
+}
+.navigation table tr td  a{
+    text-decoration: none;
+    color: black;
+    
+    font-family: Helvetica, sans-serif;
+
+}
+.navigation table tr td  a:hover{
+    color:#4198f7;
+    text-decoration:underline;
+}
+.main-btn{
+    background-color: transparent;
+    border: 0;
+    padding: 10px;
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+.main-btn:hover{
+    background-color: #4198f7; 
+    border-radius: 10px;
+    color: white;
+    transition: 0.71s;
+}
+.content-container{
+    padding: 2rem;
+    background-color: white
+}
+#id_izborni {
+    font-size: 1.3rem;
+  }
+
+

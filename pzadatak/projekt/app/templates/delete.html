@@ -1,0 +1,13 @@
+{%extends 'base.html' %}
+{%block delete %}
+{% csrf_token %}
+<section class="delete_professor">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <p>Jeste li sigurni da zelite izbrisat</p>
+        <input type="submit" value="DA">
+        <a href="{{request.META.HTTP_REFERER}}">Nazad</a>
+
+    </form>
+</section>
+{%endblock%}

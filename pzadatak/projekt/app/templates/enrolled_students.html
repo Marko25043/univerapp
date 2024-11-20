@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block enrolled_students %}
+{% csrf_token %}
+<section class="enrolled_students">
+        <a href="{%url 'professor' %}">Nazad</a>
+        <h2>Upisani Studenti </h2>
+
+        <ul>
+            <table>
+                    <tr>
+                        <td><li>Ime</li></td>
+                        <td><li>Status </li></td>
+                        <td><li>Kolegij</li></td>
+                    </tr>
+                    {% for student in students %}
+                    {%if student.status != 'P' and student.status != 'N' %}
+                    <tr>
+                        <td><li>{{ student.username}}</li></td>
+                        <td><li>{{ student.status}}</li></td>
+                        <td><li>{{ student.subject_name}}</li></td>
+                        {%if 'p' in request.user.role|lower  %}
+                        <td><a href="{%url 'update_student_status' student.id %}" >Edit</a></td>
+                        {%else%}
+                        <td><a href="{%url 'admin_update_student_status' student.id %}" >Edit</a></td>
+                        {% endif %}
+                        
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+            </table>
+        </ul>
+
+</section>
+{%endblock%}

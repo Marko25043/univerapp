@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block add_subject %}
+<section class="add_subject">
+        <a href="{% url 'main'%}">Nazad</a>
+        <form method="POST">
+        {{form}}
+        <input type="submit" value="Dodaj predmet">
+        {% csrf_token %}
+        </form>
+        <h2>Lista Predmeta</h2>
+        <ul>
+            <table>
+                <td><li>Kolegij</li></td>
+                    <td><li>Kod</li></td>
+                    <td><li>Sem Izv</li></td>
+                    <td><li>Sem Red</li></td>
+                    
+            {% for subject in subjects %}
+                
+                <tr>
+                    <td><li>{{ subject.name}}</li></td>
+                    <td><li>{{ subject.code}}</li></td>
+                    <td><li>{{ subject.sem_izv}}</li></td>
+                    <td><li>{{ subject.sem_red}}</li></td>
+                    <td><a href="{%url 'update_subject' subject.id %}" >Edit</a></td>
+                    <td><a href="{%url 'delete_subject' subject.id %}">Delete</a></td>
+                    <td><a href="{%url 'enrolled_students' subject.id %}">Studenti</a></td>
+                    
+                </tr>
+                
+            {% endfor %}
+        </table>
+        </ul>
+
+</section>
+{% endblock %}

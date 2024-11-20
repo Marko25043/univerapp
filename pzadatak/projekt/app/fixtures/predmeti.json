@@ -1,0 +1,24 @@
+[{
+    "model":"app.predmet",
+    "pk":1, 
+    "fields":{
+        "name": "Linearna algebra", 
+        "code":"SIT001", 
+        "program":"Program nije unesen", 
+        "ects":5, 
+        "sem_red":1, 
+        "sem_izv":1, 
+        "izborni":"ne"
+        }
+    },
+{
+    "model":"app.predmet",
+    "pk":2, 
+    "fields":{
+        "name": "Fizika", 
+        "code":"SIT002", 
+        "program":"Program nije unesen", 
+        "ects":6, 
+        "sem_red":1, 
+        "sem_izv":3, 
+        "izborni":"ne"}}]

@@ -1,0 +1,56 @@
+{%extends 'base.html' %}
+{%block student %}
+{% csrf_token %}
+<section class="student">
+    <nav>
+        
+        <form id="logout-form" action="{% url 'logout' %}" method="post" > 
+        {% csrf_token %}
+            <button type="submit" class="main-btn">Odjava</button>
+        </form>
+        {%if view_message == 'view_student' %}
+        <a href="{% url 'student_add_subject' %}">Dodaj Predmet </a>
+        <h2>Welcome {{data.username}}</h2>
+        <ul>
+        <table class="student_subjects">
+            <tr>
+                <td><li>Naziv Kolegija</li></td>
+                <td><li>Sifra kolegija</li></td>
+                <td><li>Ects</li></td>
+                <td><li>Status</li></td>
+            </tr>
+            {% for subject in enrollment %}
+                
+            <tr>
+                <td><li>{{ subject.name}}</li></td>
+                <td><li>{{ subject.code}}</li></td>
+                <td><li>{{ subject.ects}}</li></td>
+                <td><li>{{ subject.status}}</li></td>
+
+                
+            </tr>
+            
+        {% endfor %}
+        </table>
+        </ul>
+
+
+
+
+
+
+
+        {%else %}
+        <a href="{% url 'student' %}">Nazad</a>
+        <form method="POST" >
+            {{form.as_p}}
+            <input type="submit" value="Dodaj predmet" >
+            {% csrf_token %}
+        {% endif %}
+    </form>
+    </nav>
+  
+   
+    
+</section>
+{%endblock%}

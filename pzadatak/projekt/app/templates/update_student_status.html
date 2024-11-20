@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block update_student_status %}
+<section class="update_student_status">
+<a href="{{request.META.HTTP_REFERER}}">Nazad</a>
+<form method="POST" action="">
+{{form}}
+<input type="submit" value="Promijeni">
+{% csrf_token %}
+
+</form>
+
+{% endblock %}

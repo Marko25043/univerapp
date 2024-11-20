@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block add_professor %}
+<section class="add_professor">
+        <a href="{% url 'main'%}">Nazad</a>
+        <form method="POST" >
+                {{form.as_p}}
+                <input type="submit" value="Dodaj profesora" id="submit_btn">
+                {% csrf_token %}
+        </form>
+        <h2>List of Professors</h2>
+            <ul>
+                <table>
+                {% for professor in professors %}
+                    
+                    <tr>
+                        <td><li>{{ professor.username }}</li></td>
+                        <td><a href="{%url 'update_professor' professor.id %}" >Edit          </a></td>
+                        <td><a href="{%url 'delete_professor' professor.id %}">Delete        </a></td>
+                        
+                    </tr>
+                    
+                {% endfor %}
+            </table>
+            </ul>
+</section>
+{% endblock %}

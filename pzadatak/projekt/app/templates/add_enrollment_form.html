@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block add_enrollment_form %}
+<section class="add_enrollment_form">
+        <a href="{% url 'main'%}">Nazad</a>
+        <form method="POST" >
+                {{form.as_p}}
+                <input type="submit" value="Dodaj upisnicu" >
+                {% csrf_token %}
+        </form>
+        <h2>Lista Upisa</h2>
+        <ul>
+            <table>
+                <tr>
+                    <td><li>Korisnicko ime</li></td>
+                    <td><li>Kolegij</li></td>
+                    <td><li>Kod</li></td>
+                    <td><li>Status</li></td>
+                    
+                </tr>
+            {% for enrollment in enrollments %}
+                <tr>
+                    <td><li>{{ enrollment.student.username}}</li></td>
+                    <td><li>{{ enrollment.subject.name}}</li></td>
+                    <td><li>{{ enrollment.subject.code}}</li></td>
+                    <td><li>{{ enrollment.status}}</li></td>
+                    <td><a href="{%url 'update_enrollment_form' enrollment.id %}" >Edit</a></td>
+                    <td><a href="{%url 'delete_enrollment_form' enrollment.id %}">Delete</a></td>
+                
+                </tr>
+                
+            {% endfor %}
+            </table>
+        </ul>
+
+</section>
+{% endblock %}

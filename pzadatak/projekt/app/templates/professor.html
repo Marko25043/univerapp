@@ -1,0 +1,72 @@
+{%extends 'base.html' %}
+{%block professor %}
+{% csrf_token %}
+<section class="professor">
+            <nav>
+                <form id="logout-form" action="{% url 'logout' %}" method="post" > 
+                {% csrf_token %}
+                    <button type="submit" class="main-btn">Odjava</button>
+                </form>
+            </nav>
+
+
+            <div class="content-container">
+                {%if enrollment %}
+                    <a href="{% url 'professor'%}">Nazad</a>
+                    <h2>{{enrollment.0.subject_name}}</h2>
+                    <table>
+                        {% for student in enrollment %}
+                            {%if student.status == 'P' %}
+                        <tr>
+                    
+                            <td><li>{{student.username}}</li></td>
+                            <td><li>Polozio</li></td>
+                        </tr>
+                            {%elif student.status == 'N' %}
+                            
+                            <td><li>{{student.username}}</li></td>
+                            <td><li>Nije Polozio</li></td>
+                        {%endif%}
+                        {% endfor %}
+
+                    
+                    </table>
+                    <h3>Broj upisanih na kolegij : {{enrolled}}</h3>
+                    <h3>Izgubljeno pravo : {{failed}}</h3>
+                    <h3>Broj polozenih : {{passed}}</h3>
+                
+                {%else%}
+                <h2>Moji Kolegiji:</h2>
+                <ul>
+                    <table>
+                        <tr>
+                            <td><li>Kolegij</li></td>
+                            <td><li>Kod</li></td>
+                            <td><li>Ects bodovi</li></td>
+                            <td><li>Sem Izv</li></td>
+                            <td><li>Sem Red</li></td>
+                        </tr>
+                    {% csrf_token %}
+                    {% for subject in subjects %}
+                        
+                        <tr>
+                            <td><li>{{ subject.name}}</li></td>
+                            <td><li>{{ subject.code}}</li></td>
+                            <td><li>{{ subject.ects}}</li></td>
+                            <td><li>{{ subject.sem_izv}}</li></td>
+                            <td><li>{{ subject.sem_red}}</li></td>
+                            <td><a href="{%url 'professor_enrolled_student' subject.id %}" >Upisani Studenti </a></td>
+                            <td><a href="{%url 'student_statistics_by_subject' subject.id %}">Statistika Studenata </a></td>
+                            
+                        </tr>
+                    
+                        {% endfor %}
+                    </table>
+                </ul>
+            {%endif%}
+                
+            </div>
+
+
+</section>
+{%endblock%}

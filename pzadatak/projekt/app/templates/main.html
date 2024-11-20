@@ -1,0 +1,26 @@
+{%extends 'base.html' %}
+{%block main %}
+{% csrf_token %}
+<section class="main">
+        <nav>
+            <form id="logout-form" action="{% url 'logout' %}" method="post" > 
+            {% csrf_token %}
+                <button type="submit" class="main-btn">Odjava</button>
+            </form>
+        </nav>
+        <h2>Welcome {{data.role}} {{data.username}}</h2>
+
+        {{hello}}
+        <div class="navigation">
+        <table>
+            <tr>
+                <td><a href="{% url 'add_subject'%}">Odjeljak predmeti </a> </td>
+                <td><a href="{% url 'add_professor'%}">Odjeljak Profesori </a></td>
+                <td><a href="{% url 'add_student'%}">Odjeljak Studenti </a></td>
+                <td><a href="{% url 'add_enrollment_form'%}">Odjeljak Upisi </a></td>
+            </tr>
+        </table>
+        </div>
+</section>
+
+{%endblock%}
